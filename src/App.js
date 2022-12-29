@@ -1,40 +1,35 @@
+import CategoryMenu from "./components/category-menu/category-menu.component";
+
 const App = () => {
   const categories = [
     {
       id: 1,
-      title: "Hats",
+      title: "hats",
+      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
     },
     {
       id: 2,
-      title: "Jackets",
+      title: "jackets",
+      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
     },
     {
       id: 3,
-      title: "Sneakers",
+      title: "sneakers",
+      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
     },
     {
       id: 4,
-      title: "Women's",
+      title: "womens",
+      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
     },
     {
       id: 5,
-      title: "Men's",
+      title: "mens",
+      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
     },
   ];
 
-  return (
-    <div className="categories-container">
-      {categories.map(({ title }) => (
-        <div className="category-container">
-          <div className="category-background" />
-          <div className="category-body-container">
-            <h2 className="category-title">{title}</h2>
-            <p className="category-subtitle">Shop Now</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+  return <CategoryMenu categories={categories} />;
 };
 
 export default App;
