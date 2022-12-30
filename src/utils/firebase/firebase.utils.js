@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
 import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
 
 // Firebase configuration
@@ -16,21 +21,24 @@ const firebaseConfig = {
 // eslint-disable-next-line
 const firebaseApp = initializeApp(firebaseConfig);
 
-// Initialize provider instance and set custom parameters for the instance
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+// Initialize a provider instance and set custom parameters for the instance
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
   prompt: 'select_account',
 });
 
-// Initialize & export authentication instance and function to trigger signin
+// Initialize & export authentication instance and functions to trigger signin
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
 
 // Instantiate Firestore database
 export const db = getFirestore();
 
 // Check if the user exists, and if not, create a new user document.
-export const createUserDoc = async (userAuth) => {
+export const createUserDoc = async (userAuth, otherInfo) => {
+  if (!userAuth) return;
+
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
 
@@ -43,6 +51,7 @@ export const createUserDoc = async (userAuth) => {
         displayName,
         email,
         createdAt,
+        ...otherInfo,
       });
     } catch (err) {
       console.log('error creating the user: ', err.message);
@@ -50,4 +59,10 @@ export const createUserDoc = async (userAuth) => {
   }
 
   return userDocRef;
+};
+
+export const createAuthUserWithEmailAndPassWord = async (email, password) => {
+  if (!email || !password) return;
+
+  return await createUserWithEmailAndPassword(auth, email, password);
 };
