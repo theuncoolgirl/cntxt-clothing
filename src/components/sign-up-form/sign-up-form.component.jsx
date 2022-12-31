@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
+import './sign-up-form.styles.scss';
 import {
   createAuthUserWithEmailAndPassWord,
   createUserDoc,
@@ -51,47 +53,56 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
-      <h1>Sign up with your email and password</h1>
+    <div className="sign-up-container">
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
-          onChange={handleChange}
-          name="displayName"
-          required
-          type="text"
-          value={displayName}
+          inputOptions={{
+            onChange: handleChange,
+            name: 'displayName',
+            required: true,
+            type: 'text',
+            value: displayName,
+          }}
         />
 
         <FormInput
           label="Email"
-          onChange={handleChange}
-          name="email"
-          type="email"
-          required
-          value={email}
+          inputOptions={{
+            onChange: handleChange,
+            name: 'email',
+            type: 'email',
+            required: true,
+            value: email,
+          }}
         />
 
         <FormInput
           label="Password"
-          onChange={handleChange}
-          name="password"
-          minLength={6}
-          required
-          type="password"
-          value={password}
+          inputOptions={{
+            onChange: handleChange,
+            name: password,
+            minLength: 6,
+            required: true,
+            type: 'password',
+            value: password,
+          }}
         />
 
         <FormInput
           label="Confirm Password"
-          onChange={handleChange}
-          name="confirmPassword"
-          minLength={6}
-          required
-          type="password"
-          value={confirmPassword}
+          inputOptions={{
+            onChange: handleChange,
+            name: confirmPassword,
+            minLength: 6,
+            required: true,
+            type: password,
+            value: confirmPassword,
+          }}
         />
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
