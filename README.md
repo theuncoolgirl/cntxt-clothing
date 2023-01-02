@@ -73,6 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - React
 - React Router
 - SCSS
+- Context and description of various providers
 - Firebase + Authentication Flow
   - Leveraging firebase for db and authentication. 
   - Separate utils folder to provide a layer of separation between authentication library and app; contain where app is interacting with underlying service so that it is more easily adaptable to future changes in the service or the app
