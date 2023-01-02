@@ -49,6 +49,7 @@ const SignUpForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log('value: ', value);
     setFormFields({ ...formFields, [name]: value });
   };
 
@@ -83,7 +84,7 @@ const SignUpForm = () => {
           label="Password"
           inputOptions={{
             onChange: handleChange,
-            name: password,
+            name: 'password',
             minLength: 6,
             required: true,
             type: 'password',
@@ -95,10 +96,10 @@ const SignUpForm = () => {
           label="Confirm Password"
           inputOptions={{
             onChange: handleChange,
-            name: confirmPassword,
+            name: 'confirmPassword',
             minLength: 6,
             required: true,
-            type: password,
+            type: 'password',
             value: confirmPassword,
           }}
         />
