@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button, { BUTTON_TYPES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
@@ -13,6 +14,8 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const navigate = useNavigate();
+
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
@@ -26,6 +29,7 @@ const SignInForm = () => {
     try {
       await signInUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate('/shop');
     } catch (error) {
       if (
         error.code === 'auth/user-not-found' ||
@@ -45,6 +49,7 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
+    navigate('/shop');
   };
 
   return (

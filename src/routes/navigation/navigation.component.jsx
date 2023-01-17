@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import { CartContext } from '../../context/cart.context';
@@ -14,11 +14,14 @@ import {
 } from './navigation.styles.jsx';
 
 const Navigation = () => {
+  const navigate = useNavigate();
+
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
 
   const signOutHandler = async () => {
     await signOutUser();
+    navigate('/auth');
   };
 
   return (
