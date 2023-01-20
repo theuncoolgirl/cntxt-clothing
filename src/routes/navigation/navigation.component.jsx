@@ -5,6 +5,7 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import { CartContext } from '../../context/cart.context';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
+import { selectCurrentUser } from '../../store/user/user.selector';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import {
   LogoContainer,
@@ -15,7 +16,7 @@ import {
 
 const Navigation = () => {
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
 
   const signOutHandler = async () => {
