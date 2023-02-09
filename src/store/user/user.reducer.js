@@ -6,10 +6,9 @@ const options = {
     currentUser: null,
   },
   reducers: {
-    setCurrentUser: (state, action) => ({
-      ...state,
-      currentUser: action.payload,
-    }),
+    setCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+    },
   },
 };
 
