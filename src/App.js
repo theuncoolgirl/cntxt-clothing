@@ -7,25 +7,13 @@ import Checkout from './routes/checkout/checkout.component';
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
 import Shop from './routes/shop/shop.component';
-import { setCurrentUser } from './store/user/user.reducer';
-import {
-  createUserDoc,
-  onAuthStateChangedListener,
-} from './utils/firebase/firebase.utils';
+import { checkUserSession } from './store/user/user.reducer';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDoc(user);
-      }
-      const action = setCurrentUser(user);
-      dispatch(action);
-    });
-
-    return unsubscribe;
+    dispatch(checkUserSession());
     // eslint-disable-next-line
   }, []);
 

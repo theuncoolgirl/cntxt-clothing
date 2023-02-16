@@ -74,7 +74,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - React Router
 - Redux w/Toolkit 
 - Redux Persist
-- Redux Thunk
+- Redux-Saga
+  - Write about auth flow (179)
 - Reselect (memoization)
 - styled-components
 - Firebase + Authentication Flow
