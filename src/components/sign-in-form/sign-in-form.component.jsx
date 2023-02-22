@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Button, { BUTTON_TYPES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 import {
-  signInUserWithEmailAndPassword,
-  signInWithGooglePopup,
-} from '../../utils/firebase/firebase.utils';
+  emailSignInStart,
+  googleSignInStart,
+} from '../../store/user/user.reducer';
 
 const defaultFormFields = {
   email: '',
@@ -14,7 +14,7 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
@@ -27,9 +27,8 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      await signInUserWithEmailAndPassword(email, password);
+      dispatch(emailSignInStart({ email, password }));
       resetFormFields();
-      navigate('/shop');
     } catch (error) {
       if (
         error.code === 'auth/user-not-found' ||
@@ -47,9 +46,8 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
-    navigate('/shop');
+  const signInWithGoogle = () => {
+    dispatch(googleSignInStart());
   };
 
   return (
