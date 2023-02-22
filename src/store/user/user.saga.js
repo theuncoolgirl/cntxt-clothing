@@ -11,7 +11,7 @@ import {
   signUpFailed,
   signUpStart,
   signUpSuccess,
-} from './user.reducer';
+} from './user.slice';
 import {
   createAuthUserWithEmailAndPassWord,
   createUserDoc,

@@ -3,7 +3,7 @@ import {
   addItemToCart,
   clearItemFromCart,
   decrementItemQuantity,
-} from '../../store/cart/cart.reducer';
+} from '../../store/cart/cart.slice';
 import {
   Arrow,
   BaseSpan,

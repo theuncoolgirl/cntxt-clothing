@@ -3,9 +3,9 @@ import logger from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from '@redux-saga/core';
-import cartReducer from './cart/cart.reducer';
-import categoriesReducer from './categories/categories.reducer';
-import userReducer from './user/user.reducer';
+import cartReducer from './cart/cart.slice';
+import categoriesReducer from './categories/categories.slice';
+import userReducer from './user/user.slice';
 import { rootSaga } from './root-saga';
 
 const persistConfig = {
@@ -32,7 +32,10 @@ const middleWares = [
 export const store = configureStore({
   devTools: process.env.NODE_ENV !== 'production' && window,
   reducer: persistedReducer,
-  middleware: middleWares,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(middleWares),
 });
 
 sagaMiddleware.run(rootSaga);

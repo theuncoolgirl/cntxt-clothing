@@ -7,7 +7,7 @@ import {
   CartItems,
   EmptyMessage,
 } from './cart-dropdown.styles';
-import { setIsCartOpen } from '../../store/cart/cart.reducer';
+import { setIsCartOpen } from '../../store/cart/cart.slice';
 import { selectCartItems } from '../../store/cart/cart.selector';
 
 const CartDropdown = () => {

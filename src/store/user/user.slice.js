@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createAction } from '@reduxjs/toolkit';
 
+const INITIAL_STATE = {
+  currentUser: null,
+  error: null,
+  isLoading: false,
+};
+
 const options = {
   name: 'user',
-  initialState: {
-    currentUser: null,
-    error: null,
-    isLoading: false,
-  },
+  initialState: INITIAL_STATE,
   reducers: {
     emailSignInStart: (state, action) => {
       state.isLoading = true;
@@ -15,6 +17,9 @@ const options = {
     googleSignInStart: (state, action) => {
       state.isLoading = true;
     },
+    // setCurrentUser(state, action) {
+    //   state.currentUser = action.payload;
+    // },
     signInFailed: (state, action) => {
       state.error = action.payload;
     },

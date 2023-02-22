@@ -4,7 +4,7 @@ import {
   fetchCategoriesFailed,
   fetchCategoriesStart,
   fetchCategoriesSuccess,
-} from './categories.reducer';
+} from './categories.slice';
 
 export function* fetchCategoriesAsync() {
   try {

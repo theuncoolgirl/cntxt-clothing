@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import Button, { BUTTON_TYPES } from '../button/button.component';
 
-import { addItemToCart } from '../../store/cart/cart.reducer';
+import { addItemToCart } from '../../store/cart/cart.slice';
 
 import {
   ProductCardContainer,

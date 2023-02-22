@@ -6,7 +6,7 @@ import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 import {
   emailSignInStart,
   googleSignInStart,
-} from '../../store/user/user.reducer';
+} from '../../store/user/user.slice';
 
 const defaultFormFields = {
   email: '',
