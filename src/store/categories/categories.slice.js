@@ -1,16 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const INITIAL_STATE = {
+  categories: [],
+  error: null,
+  isLoading: false,
+};
+
 const options = {
   name: 'categories',
-  initialState: {
-    categories: [],
-    error: null,
-    isLoading: false,
-  },
+  initialState: INITIAL_STATE,
   reducers: {
     fetchCategoriesFailed: (state, action) => {
-      state.isLoading = false;
       state.error = action.payload;
+      state.isLoading = false;
     },
     fetchCategoriesStart: (state, action) => {
       state.isLoading = true;

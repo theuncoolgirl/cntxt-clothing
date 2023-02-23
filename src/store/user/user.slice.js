@@ -17,9 +17,6 @@ const options = {
     googleSignInStart: (state, action) => {
       state.isLoading = true;
     },
-    // setCurrentUser(state, action) {
-    //   state.currentUser = action.payload;
-    // },
     signInFailed: (state, action) => {
       state.error = action.payload;
     },

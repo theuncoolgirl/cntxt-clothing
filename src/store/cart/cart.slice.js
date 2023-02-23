@@ -5,12 +5,14 @@ import {
   decrementQuantity,
 } from '../../utils/cart/cart.utils';
 
+const INITIAL_STATE = {
+  cartItems: [],
+  isCartOpen: false,
+};
+
 const options = {
   name: 'cart',
-  initialState: {
-    cartItems: [],
-    isCartOpen: false,
-  },
+  initialState: INITIAL_STATE,
   reducers: {
     addItemToCart: (state, action) => {
       state.cartItems = addCartItem(state.cartItems, action.payload);
