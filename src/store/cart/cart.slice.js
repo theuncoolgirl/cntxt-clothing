@@ -17,6 +17,9 @@ const options = {
     addItemToCart: (state, action) => {
       state.cartItems = addCartItem(state.cartItems, action.payload);
     },
+    clearCart: (state, action) => {
+      state.cartItems = [];
+    },
     clearItemFromCart: (state, action) => {
       state.cartItems = clearCartItem(state.cartItems, action.payload);
     },
@@ -36,6 +39,7 @@ const cartSlice = createSlice(options);
 
 export const {
   addItemToCart,
+  clearCart,
   clearItemFromCart,
   decrementItemQuantity,
   setCartItems,

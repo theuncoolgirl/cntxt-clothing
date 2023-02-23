@@ -69,6 +69,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+# TODO
+- Order Confirmation Page after successful payment
+- Demo buttons for login and stripe test card
+- Protect purchase feature only if signed in?
+- Navigationa after authentication
+- Improve functionality/security of stripe integration (use docs)
+
 # Technologies
 - React
 - React Router
@@ -78,6 +85,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
   - Write about auth flow (179)
 - Reselect (memoization)
 - styled-components
+- Utilize netlify cli to run dev server for Stripe Integration
 - Firebase + Authentication Flow
   - Leveraging firebase for db and authentication. 
   - Separate utils folder to provide a layer of separation between authentication library and app; contain where app is interacting with underlying service so that it is more easily adaptable to future changes in the service or the app
