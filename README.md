@@ -75,6 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Protect purchase feature only if signed in?
 - Navigationa after authentication
 - Improve functionality/security of stripe integration (use docs)
+- Improve design/styling
 
 # Technologies
 - React
