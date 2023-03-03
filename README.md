@@ -1,92 +1,44 @@
-# Getting Started with Create React App
+<!-- omit in toc -->
+# Cntxt Clothing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*By Erin Shields*
 
-## Available Scripts
+Check out a live version of **Cntxt Clothing**: [Cntxt Clothing Live](https://main--creative-tapioca-b4b576.netlify.app/)
 
-In the project directory, you can run:
+**Table of Contents**
+- [Technologies](#technologies)
+- [App Overview](#app-overview)
+- [Feature Backlog](#feature-backlog)
 
-### `npm start`
+## Technologies
+* React w/ React Router
+* Redux (incl. Redux Toolkit, Redux Saga, Redux Persist)
+* Firebase Authentication (email/password and Google OAuth)
+* Firestore DB No-SQL (for category data)
+* Stripe API
+* `reselect` library for memoization
+* `styled-components` library for styling and component re-usability
+* Netlify (live site deployment/hosting)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## App Overview
+Cntxt Clothing is a fully-function e-commerce site built as part of the [ZTM Complete React Developer course](https://zerotomastery.io/courses/learn-react/).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Features:
+- Sign up, sign in, and sign out via email/password or with Google credentials (OAuth).
+- Landing/home page displays a directory that users can use to navigate to products by category.
+- Shop page displays various products organized by category.
+- Add, remove, and increment items in the cart.  
+- View a drop-down preview of the cart and navigate to the cart page, where users can view the total calculated price and finalize their purchase. 
 
-### `npm test`
+Instructions for Payment:
+- Users can simulate "purchasing" items by credit cart via an integration with the Stripe API. This feature is strictly in test mode and users can use the test credit card credentials of Cart Number 4242 4242 4242 4242, any number for the CVC, and any future date to simulate a purchase. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# TODO
-- Order Confirmation Page after successful payment
-- Demo buttons for login and stripe test card
-- Protect purchase feature only if signed in?
-- Navigationa after authentication
-- Improve functionality/security of stripe integration (use docs)
-
-# Technologies
-- React
-- React Router
-- Redux w/Toolkit 
-- Redux Persist
-- Redux-Saga
-  - Write about auth flow (179)
-- Reselect (memoization)
-- styled-components
-- Utilize netlify cli to run dev server for Stripe Integration
-- Firebase + Authentication Flow
-  - Leveraging firebase for db and authentication. 
-  - Separate utils folder to provide a layer of separation between authentication library and app; contain where app is interacting with underlying service so that it is more easily adaptable to future changes in the service or the app
-  - onAuthChange = listener for asynchronous stream listening to changes in the auth state
+## Feature Backlog
+- Redirect users to shop page upon successful login/authentication. 
+- Implement responsive styling to improve user experience across various devices. 
+- Add and direct users to an order confirmation page upon successful purchase (instead of simply clearing the cart).
+- Add demo buttons to auto-fill demo login/test credit card information.
+- Add protected flows based on user authentication, such as only allowing logged-in users to finalize purchases.
+- Refactor project using Typescript [WIP]
+- Refactor to leverage GraphQL (& caching)
+- Add performance optimizations (look into: useCallback hooks, useMemo, code splitting, dynamic imports, suspense & lazy)
